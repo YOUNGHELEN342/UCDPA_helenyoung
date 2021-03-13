@@ -5,17 +5,18 @@
 import os
 
 import pandas as pd
-
+import numpy as py
 print(os.getcwd())
 data = pd.read_csv("Data Files\\healthcare-dataset-stroke-data.csv")
-print(data.head())
-print(data.tail())
-print(data.shape)
+data= data.drop(["id"], axis=1)
 print(data.isnull().sum())
-data.fillna
-data_filled = data.fillna(method = "ffill", axis = 0).fillna(0)
-print(data_filled.isnull().sum())
-data_final = data_filled.drop_duplicates(subset=["id"])
+data = data.dropna(subset=['bmi'], axis=0)
+print(data.isnull().sum())
+print(data.shape)
+
+
+
+
 
 
 
