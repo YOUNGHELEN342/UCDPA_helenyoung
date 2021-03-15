@@ -25,8 +25,10 @@ data_sorted = data.sort_values("bmi", False)
 data_group = data.groupby("gender").count()
 # Grouping the dataset by gender and saving as data_group-Noticed there was 1 line as "Other"
 print(data_group)
+print(data)
 
-
+data_female= data.loc[data.gender == "Female", "age": "bmi"]
+print(data_female)
 
 
 
