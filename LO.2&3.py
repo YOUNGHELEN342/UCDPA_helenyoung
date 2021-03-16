@@ -5,6 +5,9 @@
 import os
 import pandas as pd
 import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+
 
 
 print(os.getcwd())
@@ -28,9 +31,10 @@ print(data_group)
 print(data)
 
 data_female= data.loc[data.gender == "Female", "age": "bmi"]
-print(data_female)
 
 
+data_social = data.iloc[:,4:7]
+print(data_social)
 
 
 
