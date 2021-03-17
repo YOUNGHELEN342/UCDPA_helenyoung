@@ -46,14 +46,14 @@ data_female= data.loc[data.gender == "Female", "gender": "age"]
 # Socio-economic data only ie: Marraige status, Employment type & Residence type for all genders.
 data_social = data.iloc[:,4:7]
 
-#Merge data_social & data_female
+# To merge data_social & data_female
 df_cat = pd.concat([data_social, data_female], axis=1)
 
 # To fill null values
 df_cat.fillna(value=0, inplace= True)
 print(df_cat)
 
-# Add uppercase column "Gender" to data_social
+# To add uppercase column "Gender" to data_social
 for lab, row in data.iterrows():
     data_social.loc[lab, "GENDER"] = row["gender"].upper()
 
