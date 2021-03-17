@@ -51,9 +51,13 @@ df_cat = pd.concat([data_social, data_female], axis=1)
 
 # To fill null values
 df_cat.fillna(value=0, inplace= True)
-
 print(df_cat)
 
+# Add uppercase column "Gender" to data_social
+for lab, row in data.iterrows():
+    data_social.loc[lab, "GENDER"] = row["gender"].upper()
+
+print(data_social)
 
 
 
