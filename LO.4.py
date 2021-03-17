@@ -1,6 +1,6 @@
 #   This function achieves the following learning outcomes :
-#       2. Importing data
-#       3. Analysing data
+#       4: Functions, Numpy, Lists
+#
 
 import os
 import pandas as pd
@@ -24,10 +24,12 @@ data= data.dropna(subset=['bmi'], axis=0)
 #To remove 1 line as "Other" in Gender.
 lines_drop= data[data["gender"] =="Other"].index
 data.drop(lines_drop,inplace=True)
-
+#data["age"] = data["age"].astype(str)
 
 np.values= data.values
 print(np.values)
+
+np.round()
 
 
 

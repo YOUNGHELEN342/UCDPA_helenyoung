@@ -7,10 +7,13 @@ import pandas as pd
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
-
+import requests
 import json
 
 print(os.getcwd())
+
+request=requests.get("https://www.kaggle.com/fedesoriano/stroke-prediction-dataset")
+print(request.status_code)
 # Import CSV file from Kaggle
 data = pd.read_csv("Data Files\\healthcare-dataset-stroke-data.csv")
 
@@ -30,6 +33,7 @@ data.drop(lines_drop,inplace=True)
 print(data.isnull().sum())
 print(data.shape)
 print(data.columns)
+print(data.info())
 
 # Sorting BMI in desending order and saving as data_sorted
 data_sorted = data.sort_values("bmi", False)
@@ -43,7 +47,7 @@ print(data_group)
 # Data on females only from columns gender to age.
 data_female= data.loc[data.gender == "Female", "gender": "age"]
 
-# Socio-economic data only ie: Marraige status, Employment type & Residence type for all genders.
+# Socio-economic data only ie: Marriage status, Employment type & Residence type for all genders.
 data_social = data.iloc[:,4:7]
 
 # To merge data_social & data_female
@@ -58,6 +62,7 @@ for lab, row in data.iterrows():
     data_social.loc[lab, "GENDER"] = row["gender"].upper()
 
 print(data_social)
+
 
 
 
