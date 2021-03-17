@@ -12,8 +12,10 @@ import json
 
 print(os.getcwd())
 
+# API from Kaggle and checking successful import 
 request=requests.get("https://www.kaggle.com/fedesoriano/stroke-prediction-dataset")
 print(request.status_code)
+
 # Import CSV file from Kaggle
 data = pd.read_csv("Data Files\\healthcare-dataset-stroke-data.csv")
 
