@@ -8,33 +8,56 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-
+import json
 
 print(os.getcwd())
+# Import CSV file from Kaggle
 data = pd.read_csv("Data Files\\healthcare-dataset-stroke-data.csv")
+
+#Dropped ID as not required.
 data= data.drop(["id"], axis=1)
-# Dropped ID as don't need it
+
 print(data.isnull().sum())
+
+# Elimination of null values that I saw in BMI.
 data= data.dropna(subset=['bmi'], axis=0)
-# Got rid of the null values that I saw in BMI
+
+#To remove 1 line as "Other" in Gender.
 lines_drop= data[data["gender"] =="Other"].index
 data.drop(lines_drop,inplace=True)
-#To remove 1 line as "Other"
+
+# To show there are no null values remaining.
 print(data.isnull().sum())
 print(data.shape)
 print(data.columns)
-data_sorted = data.sort_values("bmi", False)
-# Sorting BMI in desending order and saving as data_sorted
-data_group = data.groupby("gender").count()
-# Grouping the dataset by gender and saving as data_group-Noticed there was 1 line as "Other"
-print(data_group)
-print(data)
 
+# Sorting BMI in desending order and saving as data_sorted
+data_sorted = data.sort_values("bmi", False)
+
+# Grouping the dataset by gender and saving as data_group-Noticed there was 1 line as "Other"
+data_group = data.groupby("gender").count()
+
+print(data_group)
+
+
+# Data on females only from age to BMI
 data_female= data.loc[data.gender == "Female", "age": "bmi"]
 
-
+# Socio-economic data only ie: Marraige status, Employment type & Residence type for all genders.
 data_social = data.iloc[:,4:7]
-print(data_social)
+# Age for all genders
+data_gender_age= data.iloc[:,0:2]
+
+#Merge data_social & data_gender_age
+df_cat = pd.concat([data_social, data_gender_age], axis=1)
+print(df_cat)
+
+
+
+
+
+
+
 
 
 
