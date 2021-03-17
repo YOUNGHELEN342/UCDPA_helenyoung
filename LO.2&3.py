@@ -40,17 +40,27 @@ data_group = data.groupby("gender").count()
 print(data_group)
 
 
-# Data on females only from age to BMI
-data_female= data.loc[data.gender == "Female", "age": "bmi"]
+# Data on females only from columns gender to age.
+data_female= data.loc[data.gender == "Female", "gender": "age"]
 
 # Socio-economic data only ie: Marraige status, Employment type & Residence type for all genders.
 data_social = data.iloc[:,4:7]
-# Age for all genders
-data_gender_age= data.iloc[:,0:2]
 
-#Merge data_social & data_gender_age
-df_cat = pd.concat([data_social, data_gender_age], axis=1)
+#Merge data_social & data_female
+df_cat = pd.concat([data_social, data_female], axis=1)
+
+# To fill null values
+df_cat.fillna(value=0, inplace= True)
+
 print(df_cat)
+
+
+
+
+
+
+
+
 
 
 
