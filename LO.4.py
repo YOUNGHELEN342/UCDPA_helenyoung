@@ -1,13 +1,12 @@
 #   This function achieves the following learning outcomes :
 #       4: Functions, Numpy, Lists
 #
-
+#Importing the functions I will need
 import os
 import pandas as pd
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
-
 import json
 
 print(os.getcwd())
@@ -29,11 +28,16 @@ data.drop(lines_drop,inplace=True)
 #Converting the dataframe to a Numpy array
 #data= data.to_numpy()
 #print(data)
-
+# Using Numpy Where function to create a list showing low BMI
 bmi_low= np.where(data.bmi <18.5)
 bmi_low_list = data.iloc[bmi_low]
-print(bmi_low_list)
+#print(bmi_low_list)
+# Round age
+#data["Age_rounded"] = data.age.apply(np.ceil)
+#print(data)
 
+data_array= data[["gender", "age", "bmi"]].to_numpy()
+print(data_array)
 
 
 

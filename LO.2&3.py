@@ -2,6 +2,7 @@
 #       2. Importing data
 #       3. Analysing data
 
+#Importing the functions I will need
 import os
 import pandas as pd
 import numpy as np
