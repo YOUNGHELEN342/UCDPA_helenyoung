@@ -23,30 +23,27 @@ data= data.dropna(subset=['bmi'], axis=0)
 #To remove 1 line as "Other" in Gender.
 lines_drop= data[data["gender"] =="Other"].index
 data.drop(lines_drop,inplace=True)
-#data["age"] = data["age"].astype(str)
+
+# Using Numpy "Where" function to create a list showing low BMI
+bmi_low= np.where(data.bmi <18.5)
+bmi_low_list = data.iloc[bmi_low]
+print(bmi_low_list)
+
+#Converting dataframe columns "Age" and "Residence type to lists & using functions to manipulate the content
+residence_list = data["Residence_type"].to_list()
+print(residence_list.count("Urban"))
+
+age_list = data["age"].to_list()
+age_list.sort()
+print(age_list)
 
 #Converting the dataframe to a Numpy array
-#data= data.to_numpy()
-#print(data)
-
-# Using Numpy Where function to create a list showing low BMI *****USING THIS*****
-#bmi_low= np.where(data.bmi <18.5)
-#bmi_low_list = data.iloc[bmi_low]
-#print(bmi_low_list)
-# Round age *****PROB WILL NOT USE THIS****
-#data["Age_rounded"] = data.age.apply(np.ceil)
-#print(data)
+data= data.to_numpy()
+print(data)
 
 
-#data_list= data["bmi"].to_list()
-#print(data_list)
-#Converting data_female to a list *****WILL USE THIS****
-#data_female= data.loc[data.gender == "Female", "gender": "age"]
-#print(data_female.values.tolist())
 
-data_female= data.loc[data.gender == "Female", "gender": "age"]
-data_array= data.to_numpy()
-print(data_array)
+
 
 
 
