@@ -28,16 +28,26 @@ data.drop(lines_drop,inplace=True)
 #Converting the dataframe to a Numpy array
 #data= data.to_numpy()
 #print(data)
-# Using Numpy Where function to create a list showing low BMI
-bmi_low= np.where(data.bmi <18.5)
-bmi_low_list = data.iloc[bmi_low]
+
+# Using Numpy Where function to create a list showing low BMI *****USING THIS*****
+#bmi_low= np.where(data.bmi <18.5)
+#bmi_low_list = data.iloc[bmi_low]
 #print(bmi_low_list)
-# Round age
+# Round age *****PROB WILL NOT USE THIS****
 #data["Age_rounded"] = data.age.apply(np.ceil)
 #print(data)
 
-data_array= data[["gender", "age", "bmi"]].to_numpy()
+
+#data_list= data["bmi"].to_list()
+#print(data_list)
+#Converting data_female to a list *****WILL USE THIS****
+#data_female= data.loc[data.gender == "Female", "gender": "age"]
+#print(data_female.values.tolist())
+
+data_female= data.loc[data.gender == "Female", "gender": "age"]
+data_array= data.to_numpy()
 print(data_array)
+
 
 
 
