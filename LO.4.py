@@ -26,10 +26,14 @@ lines_drop= data[data["gender"] =="Other"].index
 data.drop(lines_drop,inplace=True)
 #data["age"] = data["age"].astype(str)
 
-np.values= data.values
-print(np.values)
+#Converting the dataframe to a Numpy array
+#data= data.to_numpy()
+#print(data)
 
-np.round()
+bmi_low= np.where(data.bmi <18.5)
+bmi_low_list = data.iloc[bmi_low]
+print(bmi_low_list)
+
 
 
 
