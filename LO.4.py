@@ -29,17 +29,17 @@ bmi_low= np.where(data.bmi <18.5)
 bmi_low_list = data.iloc[bmi_low]
 print(bmi_low_list)
 
-#Converting dataframe columns "Age" and "Residence type to lists & using functions to manipulate the content
-residence_list = data["Residence_type"].to_list()
-print(residence_list.count("Urban"))
-
-age_list = data["age"].to_list()
-age_list.sort()
-print(age_list)
-
-#Converting the dataframe to a Numpy array
-data= data.to_numpy()
-print(data)
+# #Converting dataframe columns "Age" and "Residence type to lists & using functions to manipulate the content
+# residence_list = data["Residence_type"].to_list()
+# print(residence_list.count("Urban"))
+#
+# age_list = data["age"].to_list()
+# age_list.sort()
+# print(age_list)
+#
+# #Converting the dataframe to a Numpy array
+# data= data.to_numpy()
+# print(data)
 
 
 
