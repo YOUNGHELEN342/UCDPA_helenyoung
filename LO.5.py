@@ -46,12 +46,26 @@ data.drop(lines_drop,inplace=True)
 data_stroke = data[data["stroke"]==1]
 print(data_stroke)
 
-
-# sns.countplot(x='work_type', hue="stroke", data=data)
+# x= data_stroke["age"]
+# y= data_stroke[""]
+# plt.plot(x,y)
 # plt.show()
 
+# sns.countplot(x='gender', hue="stroke", data=data_stroke)
+# plt.show()
 
+# To find correlation between age, BMI and incidence of stroke
+plt.figure(figsize=(8,8))
+ax = sns.scatterplot(x="bmi", y="age", alpha= 0.5, data=data[data["stroke"]==0])
+sns.scatterplot(x="bmi", y="age", alpha= 1, data=data[data["stroke"]==1], ax=ax)
 
+# sns.countplot(x='smoking_status', hue="stroke", data=data_stroke)
+# plt.show()
+
+data_stroke.groupby(["stroke"]).work_type.value_counts().plot.bar()
+
+data_stroke.groupby(["stroke"]).smoking_status.value_counts().plot.bar()
+plt.show()
 
 
 
