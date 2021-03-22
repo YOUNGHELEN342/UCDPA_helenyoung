@@ -36,7 +36,6 @@ data['bmi'].ffill(inplace= True)
 
 # Dropped ID as not required.
 data= data.drop(["id"], axis=1)
-print(data.isnull().sum())
 
 # To remove 1 line as "Other" in Gender.
 lines_drop= data[data["gender"] =="Other"].index
@@ -77,6 +76,7 @@ for lab, row in data.iterrows():
     data_social.loc[lab, "GENDER"] = row["gender"].upper()
 
 print(data_social)
+
 
 
 
