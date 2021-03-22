@@ -1,6 +1,6 @@
 #   This function achieves the following learning outcomes :
 #       5. Seaborn, Matplotlib
-#
+
 
 #Importing the functions I will need
 import os
@@ -19,11 +19,6 @@ request=requests.get("https://www.kaggle.com/fedesoriano/stroke-prediction-datas
 
 # Import CSV file from Kaggle.
 data = pd.read_csv("Data Files\\healthcare-dataset-stroke-data.csv")
-
-# To see what the dataset looks like.
-#print(data)
-#print(data.info())
-#print(data.isnull().sum()) #Can see null values in BMI
 
 # To round Age in the dataset.
 data["age"] = data["age"].apply(lambda x :round(x))
@@ -45,36 +40,34 @@ data.drop(lines_drop,inplace=True)
 # Creating a dataset with details for stoke only.
 data_stroke = data[data["stroke"]==1]
 
-# # Histogram to find correlation between age, BMI and incidence of stroke
-# plt.figure(figsize=(8,8))
-# ax = sns.scatterplot(x="bmi", y="age", alpha= 0.5, data=data[data["stroke"]==0])
-# sns.scatterplot(x="bmi", y="age", alpha= 1, data=data[data["stroke"]==1], ax=ax)
+# Histogram to find correlation between age, BMI and incidence of stroke
+plt.figure(figsize=(8,8))
+ax = sns.scatterplot(x="bmi", y="age", alpha= 0.5, data=data[data["stroke"]==0])
+sns.scatterplot(x="bmi", y="age", alpha= 1, data=data[data["stroke"]==1], ax=ax)
 # # plt.show()
-#
-# # Bar Chart to show Incidence of Stoke based on gender.
-# plt.figure(figsize=(8,8))
-# plt.title("Incidence of Stoke based on Gender")
-# sns.countplot(x=data_stroke["stroke"], hue= data["gender"])
-# plt.xlabel("Gender")
-# plt.ylabel("Count")
+
+# Bar Chart to show Incidence of Stoke based on gender.
+plt.figure(figsize=(8,8))
+plt.title("Incidence of Stoke based on Gender")
+sns.countplot(x=data_stroke["stroke"], hue= data["gender"])
+plt.xlabel("Gender")
+plt.ylabel("Count")
 # plt.show()
 
-# # Bar Chart to show Incidence of Stoke based on Employment type.
-# plt.figure(figsize=(8,8))
-# plt.title("Incidence of Stoke based on Employment Type")
-# sns.countplot(x=data_stroke["stroke"], hue= data["work_type"])
-# plt.xlabel("Employment Type")
-# plt.ylabel("Count")
+# Bar Chart to show Incidence of Stoke based on Employment type.
+plt.figure(figsize=(8,8))
+plt.title("Incidence of Stoke based on Employment Type")
+sns.countplot(x=data_stroke["stroke"], hue= data["work_type"])
+plt.xlabel("Employment Type")
+plt.ylabel("Count")
 # plt.show()
-#
 
-#
-# # Bar Chart to show Incidence of Stoke based on Relationship status.
-# plt.figure(figsize=(8,8))
-# plt.title("Incidence of Stoke based on Relationship Status")
-# sns.countplot(x=data_stroke["stroke"], hue= data["ever_married"])
-# plt.xlabel("Relationship Status")
-# plt.ylabel("Count")
+# Bar Chart to show Incidence of Stoke based on Relationship status.
+plt.figure(figsize=(8,8))
+plt.title("Incidence of Stoke based on Relationship Status")
+sns.countplot(x=data_stroke["stroke"], hue= data["ever_married"])
+plt.xlabel("Relationship Status")
+plt.ylabel("Count")
 # plt.show()
 
 # Bar Chart to show Incidence of Stoke based on Residence Type.
@@ -83,7 +76,7 @@ plt.title("Incidence of Stoke based on Residence Type")
 sns.countplot(x=data_stroke["stroke"], hue= data["Residence_type"])
 plt.xlabel("Residence Type")
 plt.ylabel("Count")
-plt.show()
+# plt.show()
 
 
 

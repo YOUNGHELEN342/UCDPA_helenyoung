@@ -55,16 +55,16 @@ data_sorted = data.sort_values("bmi", False)
 data_group = data.groupby("gender").count()
 print(data_group)
 
-# Data on females only from columns gender to age.
-data_female1= data.loc[data.gender == "Female", "gender": "age"]
+# Data on age only.
+data_age= data.loc[:, "age"]
 
-# Data on females only from columns gender to age.
-data_female2= data.loc[data.gender == "Female", "ever_married": "Residence_type"]
+# Data on BMI only
+data_bmi= data.loc[:, "bmi"]
 
-# To merge data_female1 & data_female2
-df_cat = pd.concat([data_female1, data_female2], axis=1)
+# To merge data_age & data_BMI
+df_cat = pd.concat([data_age, data_bmi], axis=1)
 
-# To fill null values in merged datasets.
+# To fill any null values in merged datasets.
 df_cat.fillna(value=0, inplace= True)
 print(df_cat)
 
