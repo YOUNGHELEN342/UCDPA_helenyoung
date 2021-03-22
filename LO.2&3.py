@@ -9,7 +9,7 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 import requests
-import json
+# import json
 
 print(os.getcwd())
 
@@ -55,20 +55,23 @@ data_sorted = data.sort_values("bmi", False)
 # Grouping the dataset by gender and saving as data_group-Noticed there was 1 line as "Other"
 data_group = data.groupby("gender").count()
 print(data_group)
-#
+
 # Data on females only from columns gender to age.
-data_female= data.loc[data.gender == "Female", "gender": "age"]
+data_female1= data.loc[data.gender == "Female", "gender": "age"]
 
-# Socio-economic data only ie: Marriage status, Employment type & Residence type for all genders.
-data_social = data.iloc[:,4:7]
+# Data on females only from columns gender to age.
+data_female2= data.loc[data.gender == "Female", "ever_married": "Residence_type"]
 
-# To merge data_social & data_female.
-df_cat = pd.concat([data_social, data_female], axis=1)
+# To merge data_female1 & data_female2
+df_cat = pd.concat([data_female1, data_female2], axis=1)
 
 # To fill null values in merged datasets.
 df_cat.fillna(value=0, inplace= True)
 print(df_cat)
-#
+
+# Socio-economic data only ie: Marriage status, Employment type & Residence type for all genders.
+data_social = data.iloc[:,4:7]
+
 # Use iterrows to add uppercase column "Gender" to data_social
 for lab, row in data.iterrows():
     data_social.loc[lab, "GENDER"] = row["gender"].upper()

@@ -2,13 +2,13 @@
 #       4: Functions, Numpy, Lists
 #
 #Importing the functions I will need
+
 import os
 import pandas as pd
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 import json
-
 print(os.getcwd())
 # Import CSV file from Kaggle
 data = pd.read_csv("Data Files\\healthcare-dataset-stroke-data.csv")
