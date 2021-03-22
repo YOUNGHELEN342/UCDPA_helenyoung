@@ -40,29 +40,30 @@ print(df_cat)
 df_cat = df_cat.to_numpy()
 print(df_cat)
 
+#To calculate the sum of the ages & BMIs in the dataset.
+print(df_cat.sum(axis=0))
+
+# To calculate standard deviation of the dataset
+print(np.std(df_cat))
+
+
+#Using dictionaries to convert the different categories in the dataset to numerical data.
+gender_dict = {"Male": 0, "Female": 1}
+relationship_dict = {"No" :0, "Yes":1}
+smoking_history_dict = {"Unknown" :0, "smokes":1, "never smoked":2, "formerly smoked": 3}
+residence_type_dict = {"Urban": 0, "Rural" :1}
+
+data["gender"] = data["gender"].map(gender_dict)
+data["ever_married"] = data["ever_married"].map(relationship_dict)
+data["smoking_status"] = data["smoking_status"].map(smoking_history_dict)
+data["Residence_type"] = data["Residence_type"].map(residence_type_dict)
+print(data)
 
 
 
 
-# Using dictionaries to convert the different categories in the dataset to numerical data. ***USING THIS**
-# gender_dict = {"Male": 0, "Female": 1}
-# relationship_dict = {"No" :0, "Yes":1}
-# smoking_history_dict = {"Unknown" :0, "smokes":1, "never smoked":2, "formerly smoked": 3}
-# residence_type_dict = {"Urban": 0, "Rural" :1}
-#
-# data["gender"] = data["gender"].map(gender_dict)
-# data["ever_married"] = data["ever_married"].map(relationship_dict)
-# data["smoking_status"] = data["smoking_status"].map(smoking_history_dict)
-# data["Residence_type"] = data["Residence_type"].map(residence_type_dict)
-# print(data)
 
 
-
-
-
-#Converting the df_cat to a Numpy array
-# data= data.to_numpy()
-# print(data)
 
 
 
