@@ -23,6 +23,11 @@ data= data.dropna(subset=['bmi'], axis=0)
 lines_drop= data[data["gender"] =="Other"].index
 data.drop(lines_drop,inplace=True)
 
+
+bmi_less = np.where(data.bmi < 18.5)
+bmi_underweight = data.iloc[bmi_less]
+print(bmi_underweight)
+
 # Data on age only.
 data_age= data.loc[:, "age"]
 
@@ -57,7 +62,7 @@ data["gender"] = data["gender"].map(gender_dict)
 data["ever_married"] = data["ever_married"].map(relationship_dict)
 data["smoking_status"] = data["smoking_status"].map(smoking_history_dict)
 data["Residence_type"] = data["Residence_type"].map(residence_type_dict)
-print(data)
+# print(data)
 
 
 
