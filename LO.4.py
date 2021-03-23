@@ -62,7 +62,7 @@ data["gender"] = data["gender"].map(gender_dict)
 data["ever_married"] = data["ever_married"].map(relationship_dict)
 data["smoking_status"] = data["smoking_status"].map(smoking_history_dict)
 data["Residence_type"] = data["Residence_type"].map(residence_type_dict)
-# print(data)
+print(data)
 
 
 

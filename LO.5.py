@@ -76,8 +76,7 @@ plt.title("Incidence of Stoke based on Residence Type")
 sns.countplot(x=data_stroke["stroke"], hue= data["Residence_type"])
 plt.xlabel("Residence Type")
 plt.ylabel("Count")
-# plt.show()
-
+plt.show()
 
 
 
